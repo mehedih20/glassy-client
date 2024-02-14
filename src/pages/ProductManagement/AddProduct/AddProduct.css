@@ -1,0 +1,6 @@
+.addProduct-container {
+  padding: 3rem;
+  box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.2);
+  margin: 3rem auto;
+  max-width: 80rem;
+}

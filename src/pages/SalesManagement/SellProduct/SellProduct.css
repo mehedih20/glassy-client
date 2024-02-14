@@ -1,0 +1,11 @@
+.sellProduct-container {
+  padding: 3rem 0;
+}
+
+.sellProduct-data {
+  position: relative;
+  background-color: var(--color-white);
+  min-height: 50vh;
+  margin: 5rem 0;
+  padding: 3rem 3rem 2rem;
+}

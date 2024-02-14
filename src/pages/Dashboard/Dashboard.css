@@ -1,0 +1,50 @@
+.dashboard-container {
+  padding: 3rem 0;
+}
+
+.dashboard-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-title p {
+  position: relative;
+  font-family: var(--font-mons);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--color-blue-dark);
+  background-color: var(--color-grey);
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+}
+
+.dashboard-title p::after {
+  position: absolute;
+  content: "*";
+  top: 0;
+  right: 0.2rem;
+  color: var(--color-orange-dark);
+}
+
+.new-content {
+  margin-bottom: 10rem;
+}
+
+.new-content-title,
+.sales-content-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-family: var(--font-mons);
+  font-weight: 500;
+}
+
+.new-content-title {
+  background-color: var(--color-yellow-light);
+}
+.sales-content-title {
+  background-color: var(--color-green-light);
+}

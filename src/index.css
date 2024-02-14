@@ -1,0 +1,119 @@
+/* Custom font import */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Architects+Daughter&family=Handlee&family=Open+Sans:wght@300;400;500;700&family=Pacifico&display=swap");
+
+/* Reuseable */
+:root {
+  /* fonts */
+  --font-open: "Open Sans", sans-serif;
+  --font-mons: "Montserrat", sans-serif;
+  --font-arch: "Architects Daughter", cursive;
+  --font-hand: "Handlee", cursive;
+  --font-pacifico: "Pacifico", cursive;
+
+  /* color */
+  --color-black: #333;
+  --color-white: #fff;
+  --color-grey: #c0c6cd;
+  --color-blue-dark: #043d54;
+  --color-orange-dark: #a74718;
+  --color-green-dark: #105e0e;
+  --color-green-light: #96e694;
+  --color-yellow-dark: #9d8d03;
+  --color-yellow-light: #eee7ac;
+}
+
+/* Preset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: var(--font-open);
+  color: var(--color-black);
+  font-size: 1.6rem;
+}
+
+.container {
+  max-width: 140rem;
+  margin: 0 auto;
+  height: 100%;
+}
+
+/* display properties */
+.display-none {
+  display: none;
+}
+
+.display-flex {
+  display: flex !important;
+}
+
+/* background colors */
+.bg-green-dark {
+  background-color: var(--color-blue-dark) !important;
+}
+
+/* text colors */
+.color-grey {
+  color: var(--color-grey);
+}
+
+.color-orange-dark {
+  color: var(--color-orange-dark);
+}
+
+.color-green-dark {
+  color: var(--color-green-dark);
+}
+
+.color-yellow-dark {
+  color: var(--color-yellow-dark);
+}
+
+/* text formatting */
+.page-title {
+  font-family: var(--font-mons);
+  font-weight: 500;
+  color: var(--color-blue-dark);
+  margin-left: 1.5rem;
+}
+
+.empty-data-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-mons);
+  color: #a1a1a1;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.sell-modal-text {
+  font-size: 1.5rem;
+  color: #9b9b9b;
+}
+
+.background-black {
+  background-color: var(--color-black);
+}
+
+@media (max-width: 1660px) {
+  .page-title {
+    margin-left: 0;
+  }
+}

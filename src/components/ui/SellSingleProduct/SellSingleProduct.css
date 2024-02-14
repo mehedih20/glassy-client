@@ -1,0 +1,40 @@
+.sell-product-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--color-white);
+}
+
+.sell-product-box-text h2 {
+  margin-bottom: 1rem;
+  font-family: var(--font-mons);
+  font-size: 1.8rem;
+  color: var(--color-blue-dark);
+}
+
+.sell-product-box-text p {
+  color: #636363;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+.sell-product-box-text p span {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.sell-product-box-btn {
+  width: 10rem;
+}
+
+@media (max-width: 660px) {
+  .sell-product-box {
+    flex-direction: column;
+  }
+  .sell-product-box-btn {
+    margin-top: 3rem;
+    width: 100%;
+  }
+}

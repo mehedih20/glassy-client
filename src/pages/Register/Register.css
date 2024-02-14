@@ -1,0 +1,34 @@
+.section-register {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-container {
+  box-shadow: 0 0 3rem 1rem rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  padding: 5rem 10rem 10rem;
+  background-color: var(--color-white);
+}
+
+.register-container h1 {
+  margin-bottom: 5rem;
+  text-align: center;
+  font-weight: 400;
+  color: #606060;
+  font-family: var(--font-arch);
+}
+
+.register-container h1 span {
+  color: #ec886f;
+  font-size: 4rem;
+}
+
+@media (max-width: 600px) {
+  .register-container {
+    padding: 5rem 3rem 3rem;
+    margin: 0 1.5rem;
+  }
+}

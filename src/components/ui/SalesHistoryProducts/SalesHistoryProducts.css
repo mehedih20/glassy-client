@@ -1,0 +1,42 @@
+.salesHistory-data {
+  background-color: var(--color-white);
+  min-height: 40rem;
+  max-height: 100rem;
+  overflow-y: scroll;
+  padding: 1rem 1.5rem;
+  position: relative;
+}
+
+.salesHistory-data-box {
+  display: grid;
+  grid-template-columns: 2fr repeat(5, 1.5fr);
+  gap: 1rem;
+  padding: 2.5rem 0 2.5rem 2rem;
+  box-shadow: 0 0.1rem 0.5rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.salesHistory-data-box h4 {
+  color: var(--color-blue-dark);
+}
+
+.salesHistory-data-box p span {
+  font-weight: bold;
+}
+
+@media (max-width: 1110px) {
+  .salesHistory-data-box {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .salesHistory-data-box h4 {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 768px) {
+  .salesHistory-data-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .salesHistory-data-box h4 {
+    grid-column: span 2;
+  }
+}
