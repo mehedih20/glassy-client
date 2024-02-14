@@ -9,6 +9,7 @@
 ### Features
 
 - User registration and login
+- Role specific data access
 - Jwt based authentication and authorization on api calls
 - Eye glasses management with advanced filtering
 - Sales creation and analyzing sales history
