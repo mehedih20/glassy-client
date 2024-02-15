@@ -47,6 +47,13 @@ const AddProductForm = ({
       >
         <Input />
       </Form.Item>
+      <Form.Item
+        label="Image link"
+        name="productImg"
+        rules={[{ required: true }]}
+      >
+        <Input />
+      </Form.Item>
       <Form.Item label="Price" name="price" rules={[{ required: true }]}>
         <InputNumber />
       </Form.Item>

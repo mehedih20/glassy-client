@@ -2,6 +2,7 @@ export type TProduct = {
   _id?: string;
   name: string;
   price: number;
+  productImg: string;
   quantity: number;
   frameMaterial: "metal" | "plastic" | "acetate";
   frameShape: "rectangular" | "round" | "cat-eye";
@@ -11,4 +12,5 @@ export type TProduct = {
   color: string;
   templeLength: number;
   bridgeSize: number;
+  createdBy: string;
 };

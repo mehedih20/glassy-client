@@ -3,13 +3,25 @@ import { useCreateProductMutation } from "../../../redux/features/products/produ
 import { TProduct } from "../../../types/product.types";
 import AddProductForm from "../../../components/ui/AddProductForm/AddProductForm";
 import { toast } from "sonner";
+import { useAppSelector } from "../../../redux/hooks";
 
 const AddProduct = () => {
   const [createProduct, { isLoading }] = useCreateProductMutation();
+  const { user } = useAppSelector((state) => state.auth);
 
   const handleSubmit = async (values: TProduct) => {
-    await createProduct(values);
-    toast.success("Product created successfully");
+    const newProductObj = {
+      ...values,
+      createdBy: user?.email,
+    };
+
+    const result = await createProduct(newProductObj).unwrap();
+
+    if (result?.success) {
+      toast.success(result?.message);
+    } else {
+      toast.error("Something went wrong!");
+    }
   };
 
   return (
