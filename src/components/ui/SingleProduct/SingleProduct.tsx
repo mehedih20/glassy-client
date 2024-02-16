@@ -11,6 +11,7 @@ import { TProduct } from "../../../types/product.types";
 import { useState } from "react";
 import AddProductForm from "../AddProductForm/AddProductForm";
 import { toast } from "sonner";
+import { useAppSelector } from "../../../redux/hooks";
 
 type SingleProductParam = {
   data: TProduct;
@@ -27,6 +28,8 @@ const SingleProduct = ({
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isVariantModalOpen, setIsVariantModalOpen] = useState(false);
 
+  const { user } = useAppSelector((state) => state.auth);
+
   // rtq query hooks
   const [deleteProduct, { isLoading: deleteLoading }] =
     useDeleteProductMutation();
@@ -40,14 +43,26 @@ const SingleProduct = ({
       id: data._id,
       data: values,
     };
-    await updateProduct(newObj);
-    toast.success("Product updated successfully!");
+    const result = await updateProduct(newObj).unwrap();
+    if (result?.success) {
+      toast.success("Product updated successfully!");
+    } else {
+      toast.error("Something went wrong!");
+    }
     setIsEditModalOpen(false);
   };
 
   const handelCreateSubmit = async (values: TProduct) => {
-    await createProduct(values);
-    toast.success("Product added successfully!");
+    const newProductObj = {
+      ...values,
+      createdBy: user?.email,
+    };
+    const result = await createProduct(newProductObj).unwrap();
+    if (result?.success) {
+      toast.success(result?.message);
+    } else {
+      toast.error("Something went wrong!");
+    }
     setIsVariantModalOpen(false);
   };
 
@@ -55,6 +70,7 @@ const SingleProduct = ({
     _id,
     name,
     price,
+    productImg,
     quantity,
     frameMaterial,
     frameShape,
@@ -114,6 +130,9 @@ const SingleProduct = ({
         <div className="product-content">
           <FcOk className="product-icon" />
           <div className="product-desc">
+            <div className="product-img">
+              <img src={productImg} alt="productImg" />
+            </div>
             <h2>{name}</h2>
             <p>
               <span>Brand:</span> {brand}
