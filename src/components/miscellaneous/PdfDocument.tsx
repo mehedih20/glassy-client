@@ -1,7 +1,7 @@
 import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 import { TSale } from "../../types/sales.types";
 
-const SalesDocument = ({ data }: { data: TSale }) => (
+const PdfDocument = ({ data }: { data: TSale }) => (
   <Document>
     <Page style={styles.body}>
       <Text style={styles.header} fixed>
@@ -77,4 +77,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SalesDocument;
+export default PdfDocument;

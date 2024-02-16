@@ -3,7 +3,7 @@ import { TSale } from "../../../types/sales.types";
 import "./SalesHistoryProducts.css";
 import Loading from "../Loading";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import SalesDocument from "../../miscellaneous/SalesDocument";
+import PdfDocument from "../../miscellaneous/PdfDocument";
 
 const SalesHistoryProducts = ({
   data,
@@ -39,7 +39,7 @@ const SalesHistoryProducts = ({
               <span className="color-yellow-dark">Date:</span> {item.dateOfSale}
             </p>
             <PDFDownloadLink
-              document={<SalesDocument data={item} />}
+              document={<PdfDocument data={item} />}
               fileName="invoice"
             >
               Download invoice

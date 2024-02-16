@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useCreateSaleMutation } from "../../../redux/features/sales/salesApi";
 import { toast } from "sonner";
 import Loading from "../Loading";
+import { useAppSelector } from "../../../redux/hooks";
 
 type TDate = {
   $d: Date;
@@ -26,6 +27,7 @@ type ParamType = {
 const SellSingleProduct = ({ data, refetch, location }: ParamType) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [createSale, { isLoading }] = useCreateSaleMutation();
+  const { user } = useAppSelector((state) => state.auth);
   const [form] = Form.useForm();
   const { _id, name, price, quantity, brand } = data;
 
@@ -33,6 +35,7 @@ const SellSingleProduct = ({ data, refetch, location }: ParamType) => {
     const newObj = {
       productId: _id,
       data: {
+        soldBy: user?.email,
         productName: name,
         brand,
         price,
@@ -42,10 +45,14 @@ const SellSingleProduct = ({ data, refetch, location }: ParamType) => {
       },
     };
 
-    await createSale(newObj);
+    const result = await createSale(newObj).unwrap();
+    if (result.success) {
+      toast.success(result.message);
+      refetch();
+    } else {
+      toast.error("Something went wrong");
+    }
     setIsModalOpen(false);
-    toast.success("Eye glass sold successfully");
-    refetch();
   };
 
   return (
