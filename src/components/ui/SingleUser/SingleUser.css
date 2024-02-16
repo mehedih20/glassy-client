@@ -1,0 +1,23 @@
+.user-box {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.2);
+  padding: 1rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.user-box-info h4 {
+  font-size: 1.8rem;
+  color: var(--color-blue-dark);
+  font-family: var(--font-mons);
+  margin-bottom: 0.5rem;
+}
+
+.user-box-info h4 span {
+  color: var(--color-yellow-dark);
+}
+
+.user-box-info p {
+  font-family: var(--font-mons);
+  letter-spacing: 1px;
+}
