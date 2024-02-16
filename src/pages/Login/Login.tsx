@@ -6,9 +6,10 @@ import { useLoginMutation } from "../../redux/features/auth/authApi";
 import { jwtDecode } from "jwt-decode";
 import { TUser, setUser } from "../../redux/features/auth/authSlice";
 import { useAppDispatch } from "../../redux/hooks";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Loading from "../../components/ui/Loading";
 import { toast } from "sonner";
+import { baseApi } from "../../redux/api/baseApi";
 
 type FieldType = {
   username?: string;
@@ -19,15 +20,14 @@ const Login = () => {
   const [login, { isLoading }] = useLoginMutation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const location = useLocation();
-  const { from } = location.state || { from: { pathname: "/dashboard" } };
 
   const onFinish = async (values: FieldType) => {
     try {
       const result = await login(values).unwrap();
       const verifiedUser = jwtDecode(result.data.token) as TUser;
       dispatch(setUser({ user: verifiedUser, token: result.data.token }));
-      navigate(from);
+      navigate(`/${verifiedUser.role}/dashboard`);
+      dispatch(baseApi.util.invalidateTags(["products", "sales"]));
     } catch (err) {
       toast.error("Something went wrong");
     }
