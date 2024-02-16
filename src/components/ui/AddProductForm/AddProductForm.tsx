@@ -2,6 +2,7 @@ import { Button, Form, Input, InputNumber, Select } from "antd";
 import Loading from "../Loading";
 import { TProduct } from "../../../types/product.types";
 import { useLocation } from "react-router-dom";
+import { useAppSelector } from "../../../redux/hooks";
 
 type AddProductFormParams = {
   handleSubmit: (values: TProduct) => Promise<void>;
@@ -16,6 +17,7 @@ const AddProductForm = ({
   productValues,
   type,
 }: AddProductFormParams) => {
+  const { user } = useAppSelector((state) => state.auth);
   const [form] = Form.useForm();
   const { pathname } = useLocation();
 
@@ -38,7 +40,7 @@ const AddProductForm = ({
     >
       <Form.Item
         label={`Name ${
-          pathname === "/all-products" && type === "create"
+          pathname === `/${user?.role}/all-products` && type === "create"
             ? "(Change name if creating a variant)"
             : ""
         }`}
@@ -133,7 +135,7 @@ const AddProductForm = ({
             {isLoading ? <Loading /> : buttonText}
           </Button>
         </Form.Item>
-        {pathname === "/add-product" && (
+        {pathname === `/${user?.role}/add-product` && (
           <Form.Item wrapperCol={{ span: 24 }}>
             <Button
               style={{ width: "100%" }}
