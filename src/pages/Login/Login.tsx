@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, ConfigProvider, Form, Input } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import "./Login.css";
